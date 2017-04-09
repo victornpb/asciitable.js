@@ -1,7 +1,20 @@
 /**
  * Create a ASCII table based on a bi-dimensional array of strings
- * @param  {Array}   m bi-dimensional array of strings
- * @return {string}     The final ASCII table
+ * @param  {Array}   m                                   bi-dimensional array of strings
+ * @param  {Object}  [options]                           Options object
+ * @param  {Object}  [options.row]                       Row options
+ * @param  {String}  [options.row.paddingLeft="|"]       String added before the first column
+ * @param  {String}  [options.row.paddingRight="|"]      String added after the last column
+ * @param  {String}  [options.row.colSeparator="|"]      String added between columns
+ * @param  {String}  [options.row.lineBreak="\n"]        String used to break rows
+ * @param  {Object}  [options.cell]                      Cell options
+ * @param  {String}  [options.cell.paddingLeft=" "]      String added before the cell content
+ * @param  {String}  [options.cell.paddingRight=" "]     String added after the cell content
+ * @param  {Number}  [options.cell.defaultAlignDir="1"]  Define the default alignment when not specified (-1=left, 0=center, 1=right)
+ * @param  {Object}  [options.hr]                        Horizontal Line options
+ * @param  {String}  [options.hr.str="—"]                String that will be repeated to make the Horizontal Line
+ * @param  {String}  [options.hr.colSeparator="|"]       String added between columns
+ * @return {string}                                      The final ASCII table
  * @author Victor N. wwww.victorborges.com
  * @date   2016-12-28
  */
@@ -15,8 +28,8 @@ function matrixToAsciiTable(m, options) {
             lineBreak: "\n"
         },
         cell: {
-            paddingLeft: "",
-            paddingRight: "",
+            paddingLeft: " ",
+            paddingRight: " ",
             defaultAlignDir: 1 //left=-1 center=0 right=1
         },
         hr: {
