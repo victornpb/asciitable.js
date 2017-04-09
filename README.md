@@ -1,5 +1,5 @@
 # asciitable.js
-Generate a ASCII Table from a bidimensional array os strings
+Generate a ASCII Table from a bidimensional array of strings
 
 ```
 | ID |  Price   | Amount  |          Column D           | Column E  |
@@ -13,9 +13,9 @@ Generate a ASCII Table from a bidimensional array os strings
 
 Source
 
-    var t = [
+    var m = [
         ['ID', '^Price', '^Amount', '^Column D', '^Column E'], //header
-        null,
+        null, //horizontal line
         ['1', '$ 100.00', '0', 'Very long text on this cell', '^1'],
         ['2', '$ 100.00', '10', '<Left aligned', '^123'],
         ['3', '$ 100.00', '100', '^Centered', '^12345'],
@@ -45,7 +45,13 @@ Just prepend the string with one of the following characters:
        "^I'm centered"
 
 
+# Customizations
+
 ## Options
+
+It does allow a fairly amount of customization, by changing the defaults via options parameter.
+
+Defaults:
 
     {
         row: {
@@ -59,8 +65,19 @@ Just prepend the string with one of the following characters:
             paddingRight: " ",
             defaultAlignDir: 1 //left=-1 center=0 right=1
         },
-        hr: {
+        hr: { //horizontal line
             str: "—",
             colSeparator: "|"
         }
     }
+
+
+
+
+## Dependencies
+
+This module does not depend on anything. You can use it on a browser or node enviroment.
+
+### Compability
+
+It should work on anything that supports ECMAScript3 or above. Including IE.
