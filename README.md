@@ -24,6 +24,81 @@ Source
     
     var table = matrixToAsciiTable(m);
 
+# Examples 
+
+https://jsfiddle.net/Victornpb/3j7wt2a1/
+
+        | ID |  Price   | Amount  |          Column D           | Column E  |
+        |————|——————————|—————————|—————————————————————————————|———————————|
+        |  1 | $ 100.00 |       0 | Very long text on this cell |     1     |
+        |  2 | $ 100.00 |      10 | Left aligned                |    123    |
+        |  3 | $ 100.00 |     100 |          Centered           |   12345   |
+        |  4 | $ 100.00 |    1000 |               Right aligned | 123456789 |
+
+
+
+        ID| Price  |Amount |         Column D          |Column E 
+        --|--------|-------|---------------------------|---------
+         1|$ 100.00|      0|Very long text on this cell|    1    
+         2|$ 100.00|     10|Left aligned               |   123   
+         3|$ 100.00|    100|         Centered          |  12345  
+         4|$ 100.00|   1000|              Right aligned|123456789
+
+
+
+        |ID| Price  |Amount |         Column D          |Column E |
+        |--+--------+-------+---------------------------+---------|
+        | 1|$ 100.00|      0|Very long text on this cell|    1    |
+        | 2|$ 100.00|     10|Left aligned               |   123   |
+        | 3|$ 100.00|    100|         Centered          |  12345  |
+        | 4|$ 100.00|   1000|              Right aligned|123456789|
+
+
+
+        | ID '  Price   ' Amount  '          Column D           ' Column E  |
+        |'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''|
+        |  1 ' $ 100.00 '       0 ' Very long text on this cell '     1     |
+        |  2 ' $ 100.00 '      10 ' Left aligned                '    123    |
+        |  3 ' $ 100.00 '     100 '          Centered           '   12345   |
+        |  4 ' $ 100.00 '    1000 '               Right aligned ' 123456789 |
+
+
+
+         ID |  Price   | Amount  |          Column D           | Column E  
+        ~~~~+~~~~~~~~~~+~~~~~~~~~+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+~~~~~~~~~~~
+          1 | $ 100.00 |       0 | Very long text on this cell |     1     
+          2 | $ 100.00 |      10 | Left aligned                |    123    
+          3 | $ 100.00 |     100 |          Centered           |   12345   
+          4 | $ 100.00 |    1000 |               Right aligned | 123456789 
+
+
+
+        | ID |  Price   | Amount  |          Column D           | Column E  |
+        |````|``````````|`````````|`````````````````````````````|```````````|
+        |  1 | $ 100.00 |       0 | Very long text on this cell |     1     |
+        |  2 | $ 100.00 |      10 | Left aligned                |    123    |
+        |  3 | $ 100.00 |     100 |          Centered           |   12345   |
+        |  4 | $ 100.00 |    1000 |               Right aligned | 123456789 |
+
+
+
+        || ID ||  Price   || Amount  ||          Column D           || Column E  ||
+        ||====||==========||=========||=============================||===========||
+        ||  1 || $ 100.00 ||       0 || Very long text on this cell ||     1     ||
+        ||  2 || $ 100.00 ||      10 || Left aligned                ||    123    ||
+        ||  3 || $ 100.00 ||     100 ||          Centered           ||   12345   ||
+        ||  4 || $ 100.00 ||    1000 ||               Right aligned || 123456789 ||
+
+
+
+        :║[ ID ]||[  Price   ]||[ Amount  ]||[          Column D           ]||[ Column E  ]║:
+        :║-=-=-=┼┼-=-=-=-=-=-=┼┼-=-=-=-=-=-┼┼-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-┼┼-=-=-=-=-=-=-║:
+        :║[  1 ]||[ $ 100.00 ]||[       0 ]||[ Very long text on this cell ]||[     1     ]║:
+        :║[  2 ]||[ $ 100.00 ]||[      10 ]||[ Left aligned                ]||[    123    ]║:
+        :║[  3 ]||[ $ 100.00 ]||[     100 ]||[          Centered           ]||[   12345   ]║:
+        :║[  4 ]||[ $ 100.00 ]||[    1000 ]||[               Right aligned ]||[ 123456789 ]║:
+
+
 
 ## Horizontal Line
 
