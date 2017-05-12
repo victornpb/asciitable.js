@@ -23,6 +23,18 @@ Source
     ];
     
     var table = matrixToAsciiTable(m);
+    
+## Node Module (NPM)
+
+From command line run
+
+    npm install asccitable.js
+    
+Node
+
+    var matrixToAsciiTable = require('asciitable.js');
+    
+
 
 # Examples 
 
