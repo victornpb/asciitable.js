@@ -1,6 +1,6 @@
 {
   "name": "asciitable.js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Generate a ASCII Table from a bidimensional array of strings",
   "main": "asciitable.umd.js",
   "scripts": {
