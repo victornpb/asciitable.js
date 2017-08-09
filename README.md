@@ -26,14 +26,17 @@ Source
     
 ## Node Module (NPM)
 
-From command line run
+From command line, run:
 
-    npm install asccitable.js
-    
-Node
+```
+npm install asccitable.js
+```
 
-    var matrixToAsciiTable = require('asciitable.js');
-    
+In your javascript file (Node.js / Webpack), write:
+
+```
+const matrixToAsciiTable = require('asciitable.js');
+```
 
 
 # Examples 
@@ -168,3 +171,7 @@ This module does not depend on anything. You can use it on a browser or node env
 ### Compability
 
 It should work on anything that supports ECMAScript3 or above. Including IE.
+
+## Suggestions / Questions
+
+File a [issue](https://github.com/victornpb/asciitable.js/issues) on this repository.
