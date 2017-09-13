@@ -29,7 +29,7 @@ Source
 From command line, run:
 
 ```
-npm install asccitable.js
+npm install asciitable.js
 ```
 
 In your javascript file (Node.js / Webpack), write:
