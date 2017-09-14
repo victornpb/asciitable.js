@@ -1,6 +1,8 @@
 # asciitable.js
 Generate a ASCII Table from a bidimensional array of strings
 
+Live Test: https://jsfiddle.net/Victornpb/3j7wt2a1/show/
+
 ```
 | ID |  Price   | Amount  |          Column D           | Column E  |
 |————|——————————|—————————|—————————————————————————————|———————————|
@@ -171,6 +173,8 @@ Just prepend the string with one of the following characters:
 
 
 # Customizations
+
+Check out the Theme generator fiddle -> https://jsfiddle.net/Victornpb/3j7wt2a1/show/ 
 
 ## Options
 
