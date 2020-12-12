@@ -39,12 +39,18 @@ function matrixToAsciiTable(m, options) {
     }, options);
 
 
-    function defaults(c, b) {
-        for (var a in b) {
-            b.hasOwnProperty(a) && (c[a] && typeof b[a] === "object" ? defaults(c[a], b[a]) : c[a] = b[a]);
-        }
-        return c;
+    function defaults(defaultObj, options) {
+        var isObj = function (x) { return x !== null && typeof x === "object"; };
+        if(isObj(options))
+            for (var prop in defaultObj) {
+                if (Object.prototype.hasOwnProperty.call(defaultObj, prop) && Object.prototype.hasOwnProperty.call(options, prop)) {
+                    if (isObj(defaultObj[prop])) defaults(defaultObj[prop], options[prop])
+                    else defaultObj[prop] = options[prop];
+                }
+            }
+        return defaultObj;
     }
+
 
     function repeatStr(width, str) {
         str = str || " ";
