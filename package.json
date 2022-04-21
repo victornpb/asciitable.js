@@ -1,7 +1,7 @@
 {
   "name": "asciitable.js",
   "nameFull": "asciitable",
-  "version": "0.0.0",
+  "version": "1.0.3",
   "description": "Generate a ASCII Table from a bidimensional array of strings",
   "license": "Apache-2.0",
   "engines": {
