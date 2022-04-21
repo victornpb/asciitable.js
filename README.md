@@ -1,4 +1,12 @@
 # asciitable.js
+
+![Node](https://img.shields.io/node/v/asciitable.js.svg?style=flat-square)
+[![NPM](https://img.shields.io/npm/v/asciitable.js.svg?style=flat-square)](https://www.npmjs.com/package/asciitable.js)
+[![Travis](https://img.shields.io/travis/username/asciitable.js/master.svg?style=flat-square)](https://travis-ci.org/username/asciitable.js)
+[![David](https://img.shields.io/david/username/asciitable.js.svg?style=flat-square)](https://david-dm.org/username/asciitable.js)
+[![Coverage Status](https://img.shields.io/coveralls/username/asciitable.js.svg?style=flat-square)](https://coveralls.io/github/username/asciitable.js)
+[![NPM](https://img.shields.io/npm/dt/asciitable.js.svg?style=flat-square)](https://www.npmjs.com/package/asciitable.js)
+
 Generate a ASCII Table from a bidimensional array of strings
 
 Live Test: https://jsfiddle.net/Victornpb/3j7wt2a1/show/
@@ -26,20 +34,31 @@ Source
     
     var table = matrixToAsciiTable(m);
     
-## Node Module (NPM)
+## Installation
 
-From command line, run:
+### NPM
 
-```
-npm install asciitable.js
-```
+    npm install asciitable.js
+### [Yarn](https://github.com/yarnpkg/yarn)
 
-In your javascript file (Node.js / Webpack), write:
+    yarn add asciitable.js
 
-```
-const matrixToAsciiTable = require('asciitable.js');
-```
+### CDN
 
+    <script type="text/javascript" src="https://unpkg.com/asciitable.js/"></script>
+
+## Packages
+
+<!-- Output table (auto generated do not modify) -->
+
+|                    File | Module Type | Transpiled | Source Maps |
+|-------------------------|-------------|------------|-------------|
+| dist/asciitable.esm.mjs |         esm |         No |          No |
+|  dist/asciitable.cjs.js |         cjs |        Yes |         Yes |
+|  dist/asciitable.esm.js |         esm |        Yes |         Yes |
+|      dist/asciitable.js |         umd |        Yes |         Yes |
+
+<!-- END -->
 
 # Examples 
 
@@ -209,7 +228,7 @@ This module does not depend on anything. You can use it on a browser or node env
 
 ### Compability
 
-It should work on anything that supports ECMAScript3 or above. Including IE.
+It should work on anything that supports ECMAScript3 or above. Including IE6.
 
 ## Suggestions / Questions
 
