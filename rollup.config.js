@@ -17,7 +17,7 @@ const license = () => S(`
 
 const production = !process.env.ROLLUP_WATCH;
 const sourcemap = production ? true : 'inline';
-
+const entry = 'src/index.js';
 
 const assumptions = {
   constantSuper: true,
@@ -37,7 +37,7 @@ const config = [
 
   // Modern Module (No babel preset)
   {
-    input: './src/index.js',
+    input: entry,
     output: [
       {
         file: packageJson.module.replace('.js', '.mjs'),
@@ -61,7 +61,7 @@ const config = [
 
   // CJS and ESM (preset-env)
   {
-    input: './src/index.js',
+    input: entry,
     output: [
       {
         file: packageJson.main,
@@ -114,7 +114,7 @@ const config = [
 
   // Legacy UMD (preset-env)
   {
-    input: './src/index.js',
+    input: entry,
     output: [
       {
         name: packageJson.globalVar,
@@ -148,8 +148,7 @@ const config = [
         ]
       }),
       commonjs(),
-      production &&
-      terser({
+      production && terser({
         output: {}
       }),
       banner(license)
@@ -173,14 +172,14 @@ function updateReadmeOutputTable() {
       cell: {
         paddingLeft: ' ',
         paddingRight: ' ',
-        defaultAlignDi: -1
+        defaultAlignDir: -1
       },
       hr: {
         str: '-',
         colSeparator: '|'
       }
     };
-    const header = ['File', 'Module Type', 'Transpiled', 'Source Maps'/*, 'Import example'*/];
+    const header = ['File', 'Module Type', 'Transpiled', 'Source Maps', /*'Import example'*/];
     const lines = [header, null];
     for (const config of rollupConfig) {
       const babel = config.plugins.find(plugin => plugin.name === 'babel');
@@ -188,7 +187,7 @@ function updateReadmeOutputTable() {
       for (const outputConfig of config.output) {
         const sourceMaps = outputConfig.sourcemap === true ? 'Yes' : 'No';
         // const importExample = outputConfig.format === 'esm' ? `import ${packageJson.globalVar} from '${outputConfig.file}';` : `require('${outputConfig.file}')`;
-        lines.push([outputConfig.file, outputConfig.format, transpiled, sourceMaps/*, importExample*/]);
+        lines.push([outputConfig.file, outputConfig.format, transpiled, sourceMaps, /*importExample*/]);
       }
     }
     return matrixToAsciiTable(lines, gihubTable);
