@@ -29,7 +29,7 @@
     "lint:fix": "eslint src/**/*.js --fix",
     "prebuild": "rimraf dist",
     "prepublishOnly": "npm run build && git add . && git commit -m \"Updating build\"",
-    "release": "np patch --any-branch"
+    "release": "np --any-branch"
   },
   "files": [
     "dist"
