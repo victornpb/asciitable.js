@@ -187,7 +187,7 @@ function updateReadmeOutputTable() {
       const transpiled = babel ? 'Yes' : 'No';
       for (const outputConfig of config.output) {
         const sourceMaps = outputConfig.sourcemap === true ? 'Yes' : 'No';
-        const importExample = outputConfig.format === 'esm' ? `import ${packageJson.globalVar} from '${outputConfig.file}';` : `require('${outputConfig.file}')`;
+        // const importExample = outputConfig.format === 'esm' ? `import ${packageJson.globalVar} from '${outputConfig.file}';` : `require('${outputConfig.file}')`;
         lines.push([outputConfig.file, outputConfig.format, transpiled, sourceMaps/*, importExample*/]);
       }
     }
