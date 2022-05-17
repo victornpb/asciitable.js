@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * Create a ASCII table based on a bi-dimensional array of strings
  * @param  {Array}   m                                   bi-dimensional array of strings
@@ -17,16 +15,15 @@
  * @param  {String}  [options.hr.str="-"]                String that will be repeated to make the Horizontal Line
  * @param  {String}  [options.hr.colSeparator="|"]       String added between columns
  * @return {string}                                      The final ASCII table
- * @author Victor N. wwww.victorborges.com
+ * @author github.com/victornpb
  * @date   2016-12-28
  */
 export default function matrixToAsciiTable(m, options) {
-
-  options = defaults({
+  options = defaultArgs({
     row: {
-      paddingLeft: '|', //before first column
-      paddingRight: '|', //after last column
-      colSeparator: '|', //between each column
+      paddingLeft: '|', // before first column
+      paddingRight: '|', // after last column
+      colSeparator: '|', // between each column
       lineBreak: '\n'
     },
     cell: {
@@ -40,75 +37,60 @@ export default function matrixToAsciiTable(m, options) {
     }
   }, options);
 
-
-  function defaults(defaultObj, options) {
-    var isObj = function (x) { return x !== null && typeof x === 'object'; };
-    if(isObj(options))
-      for (var prop in defaultObj) {
-        if (Object.prototype.hasOwnProperty.call(defaultObj, prop) && Object.prototype.hasOwnProperty.call(options, prop)) {
-          if (isObj(defaultObj[prop])) defaults(defaultObj[prop], options[prop]);
-          else defaultObj[prop] = options[prop];
-        }
-      }
-    return defaultObj;
-  }
-
-
-  function repeatStr(width, str) {
-    str = str || ' ';
-    var result = (width > 0) ? Array(Math.ceil(width / str.length) + 1).join(str) : '';
+  function repeatStr(width, str = ' ') {
+    const result = (width > 0) ? Array(Math.ceil(width / str.length) + 1).join(str) : '';
     return result.length > width ? result.substr(0, width) : result;
   }
 
   function alignText(txt, width) {
     function pad(txt, width, dir) {
-      var p = width - txt.length;
-      var pL = (dir > 0) ? p : (p / 2) << 0;
-      var pR = (dir < 0) ? p : pL + (p - (pL * 2));
+      const p = width - txt.length;
+      const pL = (dir > 0) ? p : (p / 2) << 0;
+      const pR = (dir < 0) ? p : pL + (p - (pL * 2));
       return p > 0 ? (dir >= 0 ? Array(pL + 1).join(' ') : '') + txt + (dir <= 0 ? Array(pR + 1).join(' ') : '') : txt;
     }
-    txt = '' + txt; //toString
+    txt = `${txt}`; // toString
     switch (txt.charAt(0)) {
     case '<':
-      return pad(txt.substr(1), width, -1); //align left
+      return pad(txt.substr(1), width, -1); // align left
     case '^':
-      return pad(txt.substr(1), width, 0); //align center
+      return pad(txt.substr(1), width, 0); // align center
     case '>':
-      return pad(txt.substr(1), width, 1); //align right
+      return pad(txt.substr(1), width, 1); // align right
     default:
       return pad(txt, width, options.cell.defaultAlignDir);
     }
   }
 
   function calcColumnsWidth(matrix) {
-    //calculate columns width
-    var colsWidth = [];
+    // calculate columns width
+    const colsWidth = [];
     for (let r = 0, rLen = matrix.length; r < rLen; r++) {
-      if (!matrix[r]) continue; //separator
+      if (!matrix[r]) continue; // separator
       for (let c = 0, cLen = matrix[r].length; c < cLen; c++) {
         if (!colsWidth[c]) colsWidth[c] = 0;
-        colsWidth[c] = Math.max(colsWidth[c], ('' + matrix[r][c]).length);
+        colsWidth[c] = Math.max(colsWidth[c], (`${matrix[r][c]}`).length);
       }
     }
     return colsWidth;
   }
 
-  var paddingLength = options.cell.paddingLeft.length + options.cell.paddingRight.length;
-  var hrSeparator = repeatStr(options.row.colSeparator.length, options.hr.colSeparator || options.hr.str);
-  var colsWidth = calcColumnsWidth(m);
+  const paddingLength = options.cell.paddingLeft.length + options.cell.paddingRight.length;
+  const hrSeparator = repeatStr(options.row.colSeparator.length, options.hr.colSeparator || options.hr.str);
+  const colsWidth = calcColumnsWidth(m);
 
-  //create table
-  var table = [];
+  // create table
+  const table = [];
   for (let r = 0, rLen = m.length; r < rLen; r++) {
-    var cols = [];
+    const cols = [];
 
-    if (m[r]) { //create columns
+    if (m[r]) { // create columns
       for (let c = 0; c < colsWidth.length; c++) {
         cols.push(options.cell.paddingLeft + alignText(m[r][c], colsWidth[c]) + options.cell.paddingRight);
       }
       table.push([options.row.paddingLeft, cols.join(options.row.colSeparator), options.row.paddingRight].join(''));
     }
-    else { //create horizontal line
+    else { // create horizontal line
       for (let c = 0; c < colsWidth.length; c++) {
         cols.push(repeatStr(colsWidth[c] + paddingLength, options.hr.str));
       }
@@ -116,4 +98,17 @@ export default function matrixToAsciiTable(m, options) {
     }
   }
   return table.join(options.row.lineBreak);
+}
+
+function defaultArgs(defaults, options) {
+  function isObj(x) { return x !== null && typeof x === 'object'; }
+  function hasOwn(obj, prop) { return Object.prototype.hasOwnProperty.call(obj, prop); }
+
+  if (isObj(options)) for (let prop in defaults) {
+    if (hasOwn(defaults, prop) && hasOwn(options, prop) && options[prop] !== undefined) {
+      if (isObj(defaults[prop])) defaultArgs(defaults[prop], options[prop]);
+      else defaults[prop] = options[prop];
+    }
+  }
+  return defaults;
 }
