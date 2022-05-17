@@ -12,9 +12,9 @@
  * @param  {Object}  [options.cell]                      Cell options
  * @param  {String}  [options.cell.paddingLeft=" "]      String added before the cell content
  * @param  {String}  [options.cell.paddingRight=" "]     String added after the cell content
- * @param  {Number}  [options.cell.defaultAlignDir="1"]  Define the default alignment when not specified (-1=left, 0=center, 1=right)
+ * @param  {Number}  [options.cell.defaultAlignDir="-1"]  Define the default alignment when not specified (-1=left, 0=center, 1=right)
  * @param  {Object}  [options.hr]                        Horizontal Line options
- * @param  {String}  [options.hr.str="—"]                String that will be repeated to make the Horizontal Line
+ * @param  {String}  [options.hr.str="-"]                String that will be repeated to make the Horizontal Line
  * @param  {String}  [options.hr.colSeparator="|"]       String added between columns
  * @return {string}                                      The final ASCII table
  * @author Victor N. wwww.victorborges.com
@@ -32,7 +32,7 @@ export default function matrixToAsciiTable(m, options) {
     cell: {
       paddingLeft: ' ',
       paddingRight: ' ',
-      defaultAlignDir: 1 //left=-1 center=0 right=1
+      defaultAlignDir: -1 // left=-1 center=0 right=1
     },
     hr: {
       str: '-',
