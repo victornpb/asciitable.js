@@ -3,7 +3,7 @@
   "nameFull": "asciitable",
   "version": "1.0.3",
   "description": "Generate a ASCII Table from a bidimensional array of strings",
-  "license": "Apache-2.0",
+  "license": "MIT",
   "engines": {
     "node": ">=6"
   },
