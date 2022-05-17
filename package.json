@@ -54,7 +54,6 @@
     "@babel/plugin-transform-runtime": "^7.17.0",
     "@babel/polyfill": "^7.12.1",
     "@babel/preset-env": "^7.16.11",
-    "asciitable.js": "^1.0.3",
     "eslint": "^8.13.0",
     "husky": "^8.0.1",
     "lint-staged": "^12.4.0",
