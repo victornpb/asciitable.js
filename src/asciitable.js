@@ -35,7 +35,7 @@ export default function matrixToAsciiTable(m, options) {
       defaultAlignDir: 1 //left=-1 center=0 right=1
     },
     hr: {
-      str: '—',
+      str: '-',
       colSeparator: '|'
     }
   }, options);
