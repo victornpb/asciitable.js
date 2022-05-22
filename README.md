@@ -66,6 +66,7 @@ Default style generates a table compatible with GitHub flavored md
 
 | File                    | Module Type | Transpiled | Source Maps |
 |-------------------------|-------------|------------|-------------|
+| dist/asciitable.d.ts    | es          | No         | No          |
 | dist/asciitable.esm.mjs | esm         | No         | No          |
 | dist/asciitable.cjs.js  | cjs         | Yes        | Yes         |
 | dist/asciitable.esm.js  | esm         | Yes        | Yes         |
