@@ -3,6 +3,8 @@ import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import { terser } from 'rollup-plugin-terser';
 import banner from 'rollup-plugin-banner2';
+import dts from 'rollup-plugin-dts';
+
 import S from 'tiny-dedent';
 import packageJson from './package.json';
 import asciitable from './src/asciitable.js';
@@ -35,6 +37,12 @@ const assumptions = {
 };
 
 const config = [
+  // d.ts
+  {
+    input: 'src/asciitable.d.ts',
+    output: [{ file: packageJson.types, format: 'es' }],
+    plugins: [ dts() ],
+  },
 
   // Modern Module (No babel preset)
   {
