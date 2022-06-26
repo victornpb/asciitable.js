@@ -11,6 +11,8 @@
 [![](https://img.shields.io/tokei/lines/github/victornpb/asciitable.js?style=flat-square)](https://www.npmjs.com/package/asciitable.js)
 <!-- endbadge -->
 
+![carbon (1)](https://user-images.githubusercontent.com/3372598/175796586-c79533ab-ce78-4ccc-b07f-eb41b89b9de0.png)
+
 Generate a ASCII Table from a bidimensional array of strings
 
 Live Test: https://jsfiddle.net/Victornpb/3j7wt2a1/show/
